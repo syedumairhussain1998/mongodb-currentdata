@@ -1,0 +1,13 @@
+const Inventory = require("../models/Inventory");
+const list = async (request, response) => {
+  const data = await Inventory.updateOne(
+    { "size.uom": "umair" },
+    {
+      $set: { "size.uom": "syed ammar hussain", status: "P" },
+      $currentDate: { lastModified: true },
+    }
+  );
+  console.log(data);
+  response.json({ data });
+};
+module.exports = { list };
